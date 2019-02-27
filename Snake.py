@@ -16,7 +16,7 @@ snake = [[snk_y,snk_x],
 [snk_y,snk_x-2]
          ]
 
-food = [sh/2,sw/2]
+food = [sh//2,sw//2]
 w.addch(food[0],food[1],curses.ACS_PI)
 
 key = curses.KEY_RIGHT
@@ -25,11 +25,11 @@ while True:
     next_key = w.getch()
     key = key if next_key == -1 else next_key
 
-    if snake[0][0] in [0,sn] or snake[0][1] in [0,sw] or snake[0] in snake[1:]:
+    if snake[0][0] in [0,sh] or snake[0][1] in [0,sw] or snake[0] in snake[1:]:
         curses.endwin()
         quit()
 
-    new_head = [snakes[0][0],snake[0][1]]
+    new_head = [snake[0][0],snake[0][1]]
 
     if key == curses.KEY_DOWN:
         new_head[0] += 1
